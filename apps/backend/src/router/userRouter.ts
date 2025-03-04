@@ -20,7 +20,8 @@ router.post("/signup", async (req: any, res: any) => {
       name: body.name,
       password: body.password,
     });
-    if (existingUser) {
+
+    if (existingUser && existingUser.length>0) {
       return res.status(403).json({
         message: "User already exists",
       });
